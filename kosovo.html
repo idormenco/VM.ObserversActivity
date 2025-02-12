@@ -16,7 +16,6 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-    <script src="https://unpkg.com/leaflet-easyprint@2.1.9/dist/bundle.js"></script>
 
     <style>
       html,
@@ -194,6 +193,12 @@
           .openTooltip();
       });
 
+      function centerLeafletMapOnMarker(map, marker) {
+        var latLngs = [marker.latlng];
+        var markerBounds = L.latLngBounds(latLngs);
+        map.fitBounds(markerBounds);
+      }
+
       var svgIcon = `
         <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="29.499" cy="18.4998" r="15" fill="white"/>
@@ -220,18 +225,17 @@
             icon: leafIcon,
             formsSubmitted: loc[2],
             title: `Forms submitted: ${loc[2]}`,
-          }).bindPopup(`Forms submitted: <b>${loc[2]}</b>`)
+            riseOnHover: true,
+          })
+            .bindPopup(`Forms submitted: <b>${loc[2]}</b>`)
+            .on("click", function (marker) {
+              console.log(marker);
+              centerLeafletMapOnMarker(map, marker);
+            })
         );
       });
 
       map.addLayer(markers);
-
-      L.easyPrint({
-        tileLayer: tiles,
-        title: "My awesome print button",
-        position: "bottomright",
-        sizeModes: ["A4Portrait", "A4Landscape"],
-      }).addTo(map);
     </script>
   </body>
 </html>
