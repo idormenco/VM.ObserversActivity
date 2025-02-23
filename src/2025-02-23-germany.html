@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Kosovan parliamentary election 2025-02-09</title>
+</head>
+
+<body x-data="{'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+  x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+  :class="{'dark bg-gray-900': darkMode === true}">
+  <!-- ===== Preloader Start ===== -->
+  <include src="./partials/preloader.html"></include>
+  <!-- ===== Preloader End ===== -->
+
+  <!-- ===== Page Wrapper Start ===== -->
+  <div class="flex h-screen overflow-hidden">
+    <!-- ===== Content Area Start ===== -->
+    <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+      <!-- Small Device Overlay Start -->
+      <include src="./partials/overlay.html" />
+      <!-- Small Device Overlay End -->
+
+      <!-- ===== Header Start ===== -->
+      <include src="./partials/header.html" />
+      <!-- ===== Header End ===== -->
+
+      <!-- ===== Main Content Start ===== -->
+      <main>
+        <div class="mx-auto max-w-screen-2xl space-y-3 p-4 md:p-6" x-data="{
+              'electionTitle': 'German federal election 2025',
+              'electionDescription': '',
+              'mapInitialView': [52.51812, 13.413], 
+              'mapZoomLevel': 10,
+              'locations': [
+                [52.51268915,13.3130725705171,3],
+                [52.5162722,13.3016232966012,1],
+                [52.50924775,13.3129932698758,1],
+                [52.5394895,13.2872438,1],
+                [52.4886771,13.3028264,1],
+                [52.5117289,13.2390393763494,1],
+                [52.5129627,13.2867031,1],
+                [52.5235385,13.3032953742607,1],
+                [52.51798755,13.2991003250403,2],
+                [52.5284066,13.301547,1],
+                [52.5160623,13.3087327,2],
+                [52.5083269,13.3036973,3],
+                [52.5150006,13.3071424,3],
+                [52.4912523,13.3081185,1],
+                [52.527139,13.2972007,2],
+                [52.5136311,13.3081648,1],
+                [52.499875,13.4185359,2],
+                [52.4964634,13.4157263,1],
+                [52.4966843,13.4163454105617,1],
+                [52.5017801,13.4208909014959,1],
+                [52.5033462,13.4046371,1],
+                [52.5385879,13.6078929,1],
+                [52.5074233,13.4230285,3],
+                [52.52247315,13.4246700582602,2],
+                [52.52121415,13.423173889888,2],
+                [52.51702425,13.4129974458007,1],
+                [52.5181741,13.4131193,3],
+                [52.5088243,13.4187777300808,1],
+                [52.5097554,13.4176722,1],
+                [52.51629425,13.4241158018856,1],
+                [52.48476565,13.4316599799146,3],
+                [52.4108217,13.4853490754833,2],
+                [52.421168,13.4711638917867,2],
+                [52.5375709,13.6036251,1],
+                [52.4996939,13.2713976,1],
+                [52.3950008,13.0543855334124,1],
+                [52.39762815,13.0669054683824,1],
+                [52.41616445,13.0642080936805,1],
+                [52.40142,13.047786,2],
+                [52.40844115,12.9761996580225,1],
+                [52.38823565,13.0784765785948,1],
+                [52.5694145,13.3264158737223,2],
+                [52.5711626,13.3477337,1],
+                [52.5556752,13.2117223583888,1],
+                [52.5432003,13.2015982,2],
+                [52.5364627,13.2018534,2],
+                [52.54774605,13.211512547203,2],
+                [52.5542211,13.2085111,1],
+                [52.5349162,13.2030666,2],
+                [52.545384,13.208645,1],
+                [52.4520457,13.140653,1],
+                [52.5466087,13.1740084,1],
+                [52.4456991,13.1339565277501,1],
+                [52.4553921,13.1386412,1],
+                [52.4146049,13.6674121,2],
+              ]
+            }">
+          <include src="./partials/observations-map.html" />
+        </div>
+      </main>
+      <!-- ===== Main Content End ===== -->
+    </div>
+    <!-- ===== Content Area End ===== -->
+  </div>
+  <!-- ===== Page Wrapper End ===== -->
+</body>
+
+</html>

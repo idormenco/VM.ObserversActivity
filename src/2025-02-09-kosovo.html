@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Kosovan parliamentary election 2025-02-09</title>
+  </head>
+  <body
+    x-data="{'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark bg-gray-900': darkMode === true}"
+  >
+    <!-- ===== Preloader Start ===== -->
+    <include src="./partials/preloader.html"></include>
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- ===== Content Area Start ===== -->
+      <div
+        class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
+      >
+        <!-- Small Device Overlay Start -->
+        <include src="./partials/overlay.html" />
+        <!-- Small Device Overlay End -->
+
+        <!-- ===== Header Start ===== -->
+        <include src="./partials/header.html" />
+        <!-- ===== Header End ===== -->
+
+        <!-- ===== Main Content Start ===== -->
+        <main>
+          <div
+            class="mx-auto max-w-screen-2xl space-y-3 p-4 md:p-6"
+            x-data="{
+              'electionTitle': 'Kosovan parliamentary election 2025-02-09',
+               'electionDescription': '',
+               'mapInitialView': [42.6, 20.9], 
+               'mapZoomLevel': 8,
+
+              'locations': [
+                  [42.2065, 20.7328, 1],
+                  [42.2069, 20.7345, 2],
+                  [42.2069, 20.7348, 1],
+                  [42.21195911658731, 20.73040720300834, 2],
+                  [42.2986, 20.6979, 1],
+                  [42.327435, 20.725256, 2],
+                  [42.380847, 20.437912, 2],
+                  [42.383226067072094, 20.43625329762107, 1],
+                  [42.390015787785934, 20.426718682879564, 2],
+                  [42.4615, 21.4682, 2],
+                  [42.4946, 21.5267, 1],
+                  [42.5502, 20.7915, 2],
+                  [42.5995, 21.1417, 1],
+                  [42.603, 21.1953, 3],
+                  [42.6147, 20.9029, 2],
+                  [42.6227, 20.8915, 2],
+                  [42.6341, 21.0923, 1],
+                  [42.6358, 21.0902, 1],
+                  [42.6407, 21.1015, 1],
+                  [42.65300451366642, 21.15428737506737, 1],
+                  [42.65634237860952, 21.161152374252076, 3],
+                  [42.6577798590441, 21.159262897562837, 4],
+                  [42.65861270715603, 21.179591262481, 1],
+                  [42.65941669849027, 20.284571824528168, 1],
+                  [42.65956711170203, 21.16686030278692, 6],
+                  [42.65962017392051, 21.163473821215348, 3],
+                  [42.671217025403436, 21.163911203235504, 2],
+                  [42.7437, 20.791, 1],
+                  [42.7796, 20.4906, 2],
+                  [42.7953, 20.6912, 1],
+                  [42.8165, 21.3359, 1],
+                  [42.8244, 21.2183, 2],
+                  [42.8274, 20.9622, 1],
+                  [42.8949, 20.8642, 1],
+                  [42.8973, 20.867, 1],
+                  [42.9189, 21.1922, 1],
+                  [42.9313, 20.8056, 1],
+                  [42.9495, 21.2182, 1],
+                  [43.103, 20.8015, 1],
+                  [43.1658, 20.743, 1],
+              ]
+            }"
+          >
+            <include src="./partials/observations-map.html" />
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+  </body>
+</html>
