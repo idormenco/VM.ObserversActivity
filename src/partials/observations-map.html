@@ -1,23 +1,15 @@
 <!-- ===== Main Content Start ===== -->
-<main
-  x-init="
+<main x-init="
   darkMode = JSON.parse(localStorage.getItem('darkMode'));
   mapComponent.init(darkMode, $data.mapInitialView, $data.mapZoomLevel, $data.locations);
-  $watch('darkMode', value => mapComponent.init(darkMode, $data.mapInitialView, $data.mapZoomLevel, $data.locations))"
->
+  $watch('darkMode', value => mapComponent.init(darkMode, $data.mapInitialView, $data.mapZoomLevel, $data.locations))">
   <div class="mx-auto max-w-screen-2xl p-4 md:p-6">
     <div
-      class="rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12"
-    >
+      class="rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">
       <div class="mx-auto min-h-fit w-full text-center">
-        <h3
-          class="mb-4 text-theme-xl font-semibold text-gray-800 dark:text-white/90 sm:text-2xl"
-          x-text="electionTitle"
-        ></h3>
-        <p
-          class="text-sm text-gray-500 dark:text-gray-400 sm:text-base"
-          x-text="electionDescription"
-        ></p>
+        <h3 class="mb-4 text-theme-xl font-semibold text-gray-800 dark:text-white/90 sm:text-2xl"
+          x-text="electionTitle"></h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 sm:text-base" x-text="electionDescription"></p>
         <div id="map" class="min-h-96"></div>
         <img src="./images/icons/pin.svg" alt="pin" class="hidden" />
       </div>
@@ -28,14 +20,8 @@
 
 <!-- Leaflet CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"
-/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -56,31 +42,19 @@
       this.map = L.map("map").setView(mapInitialView, mapZoomLevel);
     },
     addTileLayer(darkMode) {
-      if (darkMode) {
-        L.tileLayer(
-          "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}",
-          {
-            minZoom: 0,
-            maxZoom: 20,
-            attribution:
-              '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            ext: "png",
-          },
-        ).addTo(this.map);
-      } else {
-        L.tileLayer(
-          "http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
-          {
-            minZoom: 0,
-            maxZoom: 20,
-            attribution:
-              '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; ' +
-              '<a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; ' +
-              '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            ext: "png",
-          },
-        ).addTo(this.map);
-      }
+      L.tileLayer(
+        "http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+        {
+          minZoom: 0,
+          maxZoom: 20,
+          attribution:
+            '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; ' +
+            '<a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; ' +
+            '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          ext: "png",
+        },
+      ).addTo(this.map);
+
     },
     initializeMarkers() {
       this.markers = L.markerClusterGroup({

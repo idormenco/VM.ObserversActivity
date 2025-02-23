@@ -83,6 +83,10 @@
   }
 }
 
+.dark .leaflet-tile {
+  -webkit-filter: hue-rotate(180deg) invert(100%);
+}
+
 .sidebar:hover {
   width: 290px;
 }
